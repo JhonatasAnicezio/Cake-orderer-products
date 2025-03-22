@@ -1,6 +1,9 @@
 package com.cake.orderer.products.model.entity;
 
+import com.cake.orderer.products.model.entity.enums.Size;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -19,10 +22,12 @@ public class Product {
   @Id
   @GeneratedValue(strategy = GenerationType.UUID)
   private String id;
-  private List<String> size;
+
+  @Enumerated(EnumType.STRING)
+  private Size size;
+
   private String name;
-  private List<Float> price;
+  private Float price;
   private String description;
-  private String  nutritionTable;
   private String content;
 }
